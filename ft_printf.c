@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:10 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/07 19:22:10 by nromito          ###   ########.fr       */
+/*   Updated: 2023/11/08 16:49:47 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_cases(va_list args, const char c)
 	if (c == 'p')
 		len += ft_putadrs(va_arg(args, void *));
 	if (c == 'd' || c == 'i')
-		len += ft_putnbr(va_arg(args, int));
+		len += ft_putnbr(va_arg(args, int), 0);
 	if (c == 'u')
 		len += ft_putuns(va_arg(args, unsigned int));
 	if (c == 'x')
@@ -69,6 +69,9 @@ int	ft_printf(const char *s, ...)
 // int	main()
 // {
 // 	int s = (-1);
-// 	ft_printf(" %d ", -1);
+// 	int i = ft_printf(" %d ", INT_MAX);
+// 	printf("%d\n", i);
+// 	int j = printf(" %d ", INT_MAX);
+// 	printf("%d\n", j);
 // 	return (0);
 // }

@@ -6,11 +6,11 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/17 12:29:28 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/07 19:25:24 by nromito          ###   ########.fr       */
+/*   Updated: 2023/11/07 21:18:40 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
+#include "ft_printf.h"
 
 char	*recursive(long long i, long long j, char *digit)
 {
@@ -24,6 +24,7 @@ char	*recursive(long long i, long long j, char *digit)
 		digit[--j] = 48 + (i % 10);
 		recursive((i / 10), j, digit);
 	}
+	write(1, &digit, 1);
 	return (digit);
 }
 
@@ -45,7 +46,7 @@ int	count_num(long long n)
 	return (i);
 }
 
-char	*ft_itoa(int n)
+int	ft_itoa(int n)
 {
 	char		*digit;
 	long long	nb;
@@ -54,10 +55,10 @@ char	*ft_itoa(int n)
 	nb = n;
 	j = count_num(nb);
 	if (nb == 0 || nb == -0)
-		return (ft_strdup("0"));
+		return (0);
 	digit = malloc(sizeof(char) * (j + 1));
-	if (digit == NULL)
-		return (NULL);
+	if (!digit)
+		return (0);
 	if (nb < 0)
 	{
 		nb = -nb;
@@ -65,5 +66,5 @@ char	*ft_itoa(int n)
 	}
 	digit = recursive(nb, j, digit);
 	digit[j] = '\0';
-	return (digit);
+	return (j);
 }

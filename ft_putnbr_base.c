@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 11:59:59 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/07 15:56:29 by nromito          ###   ########.fr       */
+/*   Updated: 2023/11/08 13:53:16 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -85,5 +85,5 @@ int	ft_putnbr_base(int nbr, char *base)
 			ft_putnbr_base((nbrl / len), base);
 		write(1, &base[nbrl % len], 1);
 	}
-	return (1);
+	return (len);
 }
