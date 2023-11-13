@@ -6,11 +6,12 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:10 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/08 17:06:20 by nromito          ###   ########.fr       */
+/*   Updated: 2023/11/10 22:23:02 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
+#include <stdio.h>
 
 int	ft_cases(va_list args, const char c)
 {
@@ -22,15 +23,15 @@ int	ft_cases(va_list args, const char c)
 	if (c == 's')
 		len += ft_putstr(va_arg(args, char *));
 	if (c == 'p')
-		len += ft_putadrs(va_arg(args, void *));
+		len += ft_putaddr(va_arg(args, uintptr_t), "0123456789abcdef", 0);
 	if (c == 'd' || c == 'i')
 		len += ft_putnbr(va_arg(args, int), 0);
 	if (c == 'u')
 		len += ft_putuns(va_arg(args, unsigned int), 0);
 	if (c == 'x')
-		len += ft_putnbr_base(va_arg(args, long long), "0123456789abcdef");
+		len += ft_put_x(va_arg(args, unsigned int), "0123456789abcdef", 0);
 	if (c == 'X')
-		len += ft_putnbr_base(va_arg(args, long long), "0123456789ABCDEF");
+		len += ft_put_x(va_arg(args, unsigned int), "0123456789ABCDEF", 0);
 	if (c == '%')
 	{
 		ft_putchar('%');
@@ -66,12 +67,12 @@ int	ft_printf(const char *s, ...)
 	return (len);
 }
 
-// int	main()
-// {
-// 	char s[20] = "";
-// 	int i = ft_printf(" %d ", INT_MAX);
-// 	printf("%d\n", i);
-// 	int j = printf(" %p ", s);
-// 	// printf("%x\n", j);
-// 	return (0);
-// }
+int	main()
+{
+	char s[20] = "";
+	int i = ft_printf(" %p ", s);
+	printf("%d\n", i);
+	int j = printf(" %p ", s);
+	printf("%d\n", j);
+	return (0);
+}

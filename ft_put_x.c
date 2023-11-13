@@ -1,30 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putadrs.c                                       :+:      :+:    :+:   */
+/*   ft_put_x.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/11/07 13:22:35 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/07 16:26:31 by nromito          ###   ########.fr       */
+/*   Created: 2023/11/07 11:59:59 by nromito           #+#    #+#             */
+/*   Updated: 2023/11/10 22:18:47 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int	ft_putadrs(void *nb)
+int	ft_put_x(int nb, char *base, int count)
 {
-	char	*digit;
-	long	i;
-	int		count;
-
-	count = 0;
-	i = (long)nb;
-	ft_putstr("0x");
-	digit = malloc(sizeof(char));
-	digit = 48 + ((void *)(i % 16));
-	if (i >= 16)
-		count += ft_putadrs((void *)(i / 16));
-	ft_putstr(digit);
+	if (!nb)
+	{
+		count += write(1, "0", 1);
+		return (count);
+	}
+	if (nb >= 16)
+		count = ft_putaddr(nb / 16, base, count);
+	count += write(1, &base[nb % 16], 1);
 	return (count);
 }
