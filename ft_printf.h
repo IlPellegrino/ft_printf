@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/10/13 15:34:29 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/10 22:24:06 by nromito          ###   ########.fr       */
+/*   Updated: 2023/11/13 19:50:58 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@
 # include <stddef.h>
 # include <unistd.h>
 # include <limits.h>
+# include <stdint.h>
 
 int			ft_printf(const char *s, ...);
 int			ft_put_x(int nbr, char *base, int count);
