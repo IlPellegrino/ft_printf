@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:39:46 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/10 22:17:36 by nromito          ###   ########.fr       */
+/*   Updated: 2023/12/17 15:39:19 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	ft_putuns(unsigned int nb, int count)
 {
 	char	digit;
-	
+
 	digit = 48 + (nb % 10);
 	if (nb >= 10)
 		count = ft_putuns(nb / 10, count);

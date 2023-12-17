@@ -6,29 +6,24 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/07 13:37:51 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/10 22:18:25 by nromito          ###   ########.fr       */
+/*   Updated: 2023/12/17 15:37:41 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
 #include <stdio.h>
-//#include "ft_printf.h"
-
-//static int count = 0;
-
+#include "ft_printf.h"
 
 int	ft_putnbr(int nb, int count)
 {
-	//static int count = 0;
 	char	digit;
 	long	i;
-	
+
 	i = (long)nb;
 	if (i < 0)
 	{
 		count += write(1, "-", 1);
 		i = -i;
-		//*count++;
 	}
 	digit = 48 + (i % 10);
 	if (i >= 10)

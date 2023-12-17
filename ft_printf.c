@@ -6,7 +6,7 @@
 /*   By: nromito <nromito@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/11/02 17:32:10 by nromito           #+#    #+#             */
-/*   Updated: 2023/11/10 22:23:02 by nromito          ###   ########.fr       */
+/*   Updated: 2023/12/17 16:02:17 by nromito          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,12 @@ int	ft_printf(const char *s, ...)
 	return (len);
 }
 
-int	main()
-{
-	char s[20] = "";
-	int i = ft_printf(" %p ", s);
-	printf("%d\n", i);
-	int j = printf(" %p ", s);
-	printf("%d\n", j);
-	return (0);
-}
+// int	main()
+// {
+// 	// unsigned int s = -9;
+// 	int i = ft_printf(" %x ", -1);
+// 	printf("%d\n", i);
+// 	int j = printf(" %x ", -1);
+// 	printf("%d\n", j);
+// 	return (0);
+// }
